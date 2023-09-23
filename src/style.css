@@ -1,0 +1,116 @@
+
+@font-face{
+    font-family: 'Spartan-extrabold';
+    src: url('./assets/fonts/SpartanMB-Extra-Bold.otf') format('otf');
+    font-weight: 600;
+    font-style: bold;
+}
+
+html{
+    background-color: #E9D8A6;
+    
+    overflow:hidden;
+}
+
+body{
+    margin: 0;
+}
+
+
+#container {
+  
+    position:relative;
+    height: 100vh;
+    width: 100vw;
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+
+}
+
+#black-bar{
+    grid-row: 6 / 7;
+    grid-column: 1 / 7;
+    background-color: #001219;
+    display: flex;
+    flex-direction:row-reverse;
+}
+
+#lateral-bars{
+    position: absolute;
+    display: flex;
+    height: 100vh;
+    min-width: 8%;
+    width:auto;
+    background-color: white;
+    right: 0%;
+}
+
+#project{
+    width: 3rem;
+    height: 100vh;
+    background-color: #ee9b00;
+    right: 8%;
+    transition: 0.5s ease-in-out;
+    
+}
+
+#project:hover {
+    width:4rem;
+    
+}
+
+#about-me{
+    height: 100vh;
+    width: 3rem;
+    background-color: #0a9396;
+    right: 8%;
+    transition: 0.5s;
+}
+
+#about-me:hover {
+    width:4rem;
+    
+}
+
+#contact{
+    height: 100vh;
+    width: 3rem;
+    background-color: #ae2012;
+    right: 8%;
+    transition: 0.5s;
+}
+
+#contact:hover {
+    width:4rem;
+    
+}
+
+#main-name{
+    display:flex;
+    align-self:flex-end;
+    grid-row: 5 / 6;
+    grid-column: 1 / 6;
+    font-size: 6rem;
+    margin-bottom: 0px;
+    font-family:'Spartan-extrabold';
+    padding-left: 3rem;
+    transform: translatey(25px)
+}
+
+#arrow{
+    grid-row:6/7;
+    grid-column: 5/6;
+    filter:invert(100%);
+   
+    height: 3rem;
+    align-self: center;
+    justify-self: center;
+    transition: 0.5s;
+    margin-right:20%;
+}
+
+#black-bar:hover #arrow{
+    transform: translateX(3rem);
+    
+}
