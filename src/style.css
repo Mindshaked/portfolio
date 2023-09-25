@@ -29,11 +29,29 @@ body{
 }
 
 #black-bar{
-    grid-row: 6 / 7;
-    grid-column: 1 / 7;
+    width: 100vw;
+    height: 8em;
     background-color: #001219;
     display: flex;
+    position:absolute;
+    bottom: 0%;
+    transition: 0.5s ease-in-out;
     flex-direction:row-reverse;
+    
+    
+}
+
+#black-bar:hover {
+
+    margin-top: auto;
+    height: 15em;
+    
+}
+
+#black-bar:hover + #main-name{
+    background-color: white;
+    font-size: 30px;
+   
 }
 
 #lateral-bars{
@@ -41,9 +59,12 @@ body{
     display: flex;
     height: 100vh;
     min-width: 8%;
-    width:auto;
-    background-color: white;
+    width: auto;
     right: 0%;
+    z-index: 2;
+    margin-left: auto;
+    
+   
 }
 
 #project{
@@ -56,16 +77,36 @@ body{
     padding-right: 10px;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    
    
     
+}
+
+#project.active {
+    width: auto;
+    pointer-events: none;
+    transition: 1s ease-in-out;
+    flex-grow: 1;
+    margin-left: auto;    
+}
+
+#project.active div{
+    visibility:hidden;
+}
+
+#project.active #lateral-bars{
+    width: 100vw;
 }
 
 .lateral-menu-names {
     height: 2rem;
     transform:rotate(90deg);
     width: 5rem;
+    max-width: 100%;
     white-space: nowrap;
     transition: 0.5s;
+    font-weight: bold;
    
 }
 
@@ -91,6 +132,7 @@ body{
     padding-right: 10px;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
    
 }
 
@@ -106,6 +148,22 @@ body{
     
 }
 
+#about-me.active {
+    width: auto;
+    pointer-events: none;
+    transition: 1s ease-in-out;
+    flex-grow: 1;
+    margin-left: auto; 
+}
+
+#about-me.active div{
+    visibility:hidden;
+}
+
+#about-me.active #lateral-bars{
+    width: 100vw;
+}
+
 #contact{
     height: 100vh;
     width: 3rem;
@@ -116,6 +174,7 @@ body{
     padding-right: 10px;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 
@@ -132,6 +191,23 @@ body{
     
 }
 
+#contact.active {
+    width: auto;
+    pointer-events: none;
+    transition: 1s ease-in-out;
+    flex-grow: 1;
+    margin-left: auto; 
+}
+
+#contact.active div{
+    visibility:hidden;
+    transition: 0,5s;
+}
+
+#contact.active #lateral-bars{
+    width: 100vw;
+}
+
 #main-name{
     display:flex;
     align-self:flex-end;
@@ -139,7 +215,9 @@ body{
     grid-column: 1 / 6;
     font-size: 6rem;
     margin-bottom: 0px;
-    font-family:'Spartan-extrabold';
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #001219;
+    font-weight: bold;
     padding-left: 3rem;
     transform: translatey(25px)
 }
