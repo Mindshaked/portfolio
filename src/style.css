@@ -19,50 +19,101 @@ body{
 
 #container {
   
-    position:relative;
+}
+
+#home{
+    
+    width: 3rem;
     height: 100vh;
-    width: 100vw;
-    display:grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    background-color: #E9D8A6;
+    right: 8%;
+    transition: 1s ease-in-out;
+    display: flex;
+   
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 
 }
 
-#black-bar{
+#home.active {
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    width: auto;
+    
+    transition: 1s ease-in-out;
+    flex-grow: 1;
+    margin-left: auto;    
+    
+}
+
+#home.active > #main-name{
+    opacity: 100%;
+}
+
+
+
+#home.active > #black-bar{
+    opacity: 100%;
+}
+
+
+#home.active #lateral-bars{
     width: 100vw;
+    
+}
+
+#home-button{
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 15px;
+    background-color: #001219;
+    left: 4%;
+    top: 4%;
+    z-index: 3;
+}
+
+#black-bar{
+    
     height: 8em;
     background-color: #001219;
     display: flex;
-    position:absolute;
-    bottom: 0%;
-    transition: 0.5s ease-in-out;
+    
+    grid-column: 1 / 7;
+    grid-row: 6 / 7;
+    transition: 1s ease-in-out;
     flex-direction:row-reverse;
+    opacity: 0%;
     
     
 }
 
 #black-bar:hover {
 
-    margin-top: auto;
+   
     height: 15em;
     
 }
 
-#black-bar:hover + #main-name{
+#black-bar:hover  #main-name{
     background-color: white;
     font-size: 30px;
    
 }
 
 #lateral-bars{
-    position: absolute;
+    position: sticky;
     display: flex;
     height: 100vh;
     min-width: 8%;
-    width: auto;
-    right: 0%;
+    left: 100%;
     z-index: 2;
     margin-left: auto;
+    transition: 1s ease-in-out;
+    align-items: row-reverse;
+    
     
    
 }
@@ -72,7 +123,7 @@ body{
     height: 100vh;
     background-color: #ee9b00;
     right: 8%;
-    transition: 0.5s ease-in-out;
+    transition: 1s ease-in-out;
     display: flex;
     padding-right: 10px;
     justify-content: center;
@@ -89,14 +140,17 @@ body{
     transition: 1s ease-in-out;
     flex-grow: 1;
     margin-left: auto;    
+    
 }
 
 #project.active div{
     visibility:hidden;
 }
 
+
 #project.active #lateral-bars{
     width: 100vw;
+    
 }
 
 .lateral-menu-names {
@@ -127,7 +181,7 @@ body{
     width: 3rem;
     background-color: #0a9396;
     right: 8%;
-    transition: 0.5s;
+    transition: 1s ease-in-out;
     display: flex;
     padding-right: 10px;
     justify-content: center;
@@ -162,6 +216,7 @@ body{
 
 #about-me.active #lateral-bars{
     width: 100vw;
+    transition: 1s ease-in-out;
 }
 
 #contact{
@@ -169,7 +224,7 @@ body{
     width: 3rem;
     background-color: #ae2012;
     right: 8%;
-    transition: 0.5s;
+    transition: 1s ease-in-out;
     display: flex;
     padding-right: 10px;
     justify-content: center;
@@ -205,6 +260,7 @@ body{
 }
 
 #contact.active #lateral-bars{
+    transition: 1s ease-in-out;
     width: 100vw;
 }
 
@@ -219,7 +275,10 @@ body{
     color: #001219;
     font-weight: bold;
     padding-left: 3rem;
-    transform: translatey(25px)
+    transform: translatey(25px);
+    opacity: 0%;
+    transition: 1s ease-in-out;
+    white-space: nowrap;
 }
 
 #arrow{

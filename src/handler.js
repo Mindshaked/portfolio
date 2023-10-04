@@ -1,6 +1,9 @@
 import './style.css'
 import arrow from './assets/icons/proximo.png';
 
+const homeIcon = document.createElement("div");
+homeIcon.setAttribute("id", "home-button");
+
 const projectBar = document.createElement("div");
 projectBar.setAttribute("id", "project");
 
@@ -24,7 +27,8 @@ function pageInit(){
     const blackBar = document.createElement("div");
     blackBar.setAttribute("id", "black-bar");
 
-    
+    const home = document.createElement("div");
+    home.setAttribute("id", "home");
 
     const mainName = document.createElement("div");
     mainName.setAttribute("id", "main-name");
@@ -54,7 +58,9 @@ function pageInit(){
 
 
     blackBar.appendChild(arrowRight);
-    container.appendChild(mainName);
+    home.appendChild(mainName);
+    home.appendChild(homeIcon);
+    lateralBars.appendChild(home);
     lateralBars.appendChild(projectBar);
     projectBar.appendChild(projectName);
     aboutMeBar.appendChild(aboutMeName);
@@ -62,7 +68,7 @@ function pageInit(){
     lateralBars.appendChild(aboutMeBar);
     lateralBars.appendChild(contactBar);
     container.appendChild(lateralBars)
-    container.appendChild(blackBar);
+    home.appendChild(blackBar);
     document.body.appendChild(container);
 
     
@@ -86,25 +92,25 @@ class Page {
         
         showPageTab(){
 
-            if (this.tab.classList.contains("active")){
-                this.tab.classList.remove("active");
-                this.status = "inactive";
-                return;
-            }
-        
+    
         
             this.tab.classList.add("active");
             this.status = "active";
-            lateralBars.style.width = "100vw";
+    
 
+
+
+            console.log(this.status);
 
             for (let i=0; i<sections.length; i++){
-                if (sections[i] == this){
-                    return;
-                }
+                if (sections[i] !== this){
+                console.log(sections[i].status)
                 sections[i].tab.classList.remove("active");
+                sections[i].status = "inactive";
+                }
             }
-            console.log(cloneSections);
+
+           
         };
 
 
@@ -123,19 +129,24 @@ class Page {
     
 }
 
-const mainPage = new Page('mainPage');
+const mainPage = new Page('mainPage', home);
 const projects = new Page('projects', projectBar);
 const aboutMe = new Page('About me', aboutMeBar);
 const contact = new Page('Contact', contactBar);
 
 const sections = [mainPage, projects, aboutMe, contact]
 
+mainPage.status = "active";
+mainPage.showPageTab();
+
 for (let i=0; i<sections.length;i++){
     sections[i].tabChange;
 }
 
 
-
+homeIcon.addEventListener("click", function(e){
+    mainPage.showPageTab();
+})
 
 
 
