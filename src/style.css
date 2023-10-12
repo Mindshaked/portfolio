@@ -17,22 +17,19 @@ body{
 }
 
 
-#container {
-  
-}
 
 #home{
     
-    width: 3rem;
+    width: 4rem;
     height: 100vh;
     background-color: #E9D8A6;
     right: 8%;
     transition: 1s ease-in-out;
     display: flex;
-   
     justify-content: center;
     align-items: center;
     cursor: pointer;
+   
 
 }
 
@@ -41,11 +38,15 @@ body{
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(6, 1fr);
     width: auto;
-    
+    pointer-events: visible;
     transition: 1s ease-in-out;
     flex-grow: 1;
     margin-left: auto;    
     
+}
+
+#home.active #home-name{
+    opacity: 0%;
 }
 
 #home.active > #main-name{
@@ -53,6 +54,16 @@ body{
 }
 
 
+#home:hover {
+    width:4rem;
+    padding-left: 10px;
+    padding-right: 3px;
+    
+}
+
+#home.active:hover {
+    
+}
 
 #home.active > #black-bar{
     opacity: 100%;
@@ -64,16 +75,14 @@ body{
     
 }
 
-#home-button{
-    position: absolute;
-    height: 2rem;
-    width: 2rem;
-    border-radius: 15px;
-    background-color: #001219;
-    left: 4%;
-    top: 4%;
-    z-index: 3;
+#home-name{
+    position:fixed;
+    transform-origin: center;
+    margin-right: 1rem;
+    transition-delay: 0.3s;
+
 }
+
 
 #black-bar{
     
@@ -83,16 +92,16 @@ body{
     
     grid-column: 1 / 7;
     grid-row: 6 / 7;
-    transition: 1s ease-in-out;
+    transition: 0.3s ease-in-out;
     flex-direction:row-reverse;
     opacity: 0%;
+    cursor: pointer;
     
     
 }
 
 #black-bar:hover {
-
-   
+    transition: 0.3s ease-in-out;
     height: 15em;
     
 }
@@ -121,7 +130,7 @@ body{
 #project{
     width: 3rem;
     height: 100vh;
-    background-color: #ee9b00;
+    background-color: #EE9B00;
     right: 8%;
     transition: 1s ease-in-out;
     display: flex;
@@ -144,7 +153,7 @@ body{
 }
 
 #project.active div{
-    visibility:hidden;
+    opacity: 0%;
 }
 
 
@@ -159,8 +168,9 @@ body{
     width: 5rem;
     max-width: 100%;
     white-space: nowrap;
-    transition: 0.5s;
     font-weight: bold;
+    transition: 0.3s ease-in-out;
+    transition-delay: 0.3s;
    
 }
 
@@ -179,7 +189,7 @@ body{
 #about-me{
     height: 100vh;
     width: 3rem;
-    background-color: #0a9396;
+    background-color: #277DA1;
     right: 8%;
     transition: 1s ease-in-out;
     display: flex;
@@ -211,7 +221,7 @@ body{
 }
 
 #about-me.active div{
-    visibility:hidden;
+    opacity: 0%;
 }
 
 #about-me.active #lateral-bars{
@@ -222,7 +232,7 @@ body{
 #contact{
     height: 100vh;
     width: 3rem;
-    background-color: #ae2012;
+    background-color: #AE2012;
     right: 8%;
     transition: 1s ease-in-out;
     display: flex;
@@ -255,8 +265,7 @@ body{
 }
 
 #contact.active div{
-    visibility:hidden;
-    transition: 0,5s;
+    opacity: 0%;
 }
 
 #contact.active #lateral-bars{

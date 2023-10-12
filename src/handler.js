@@ -1,8 +1,6 @@
 import './style.css'
 import arrow from './assets/icons/proximo.png';
 
-const homeIcon = document.createElement("div");
-homeIcon.setAttribute("id", "home-button");
 
 const projectBar = document.createElement("div");
 projectBar.setAttribute("id", "project");
@@ -40,15 +38,18 @@ function pageInit(){
 
 
   
-
+    const homeName = document.createElement("div");
     const projectName = document.createElement("div");
     const aboutMeName = document.createElement("div");
     const contactName = document.createElement("div");
+    homeName.className = "lateral-menu-names"
+    homeName.setAttribute("id", "home-name");
     projectName.className = "lateral-menu-names";
     aboutMeName.className = "lateral-menu-names";
     aboutMeName.setAttribute("id", "about-me-name")
     contactName.className = "lateral-menu-names";
 
+    homeName.innerHTML = "Home";
     projectName.innerHTML = "Projects";
     aboutMeName.innerHTML = "About Me";
     contactName.innerHTML = "Contact";
@@ -59,7 +60,8 @@ function pageInit(){
 
     blackBar.appendChild(arrowRight);
     home.appendChild(mainName);
-    home.appendChild(homeIcon);
+    
+    home.appendChild(homeName);
     lateralBars.appendChild(home);
     lateralBars.appendChild(projectBar);
     projectBar.appendChild(projectName);
@@ -144,7 +146,7 @@ for (let i=0; i<sections.length;i++){
 }
 
 
-homeIcon.addEventListener("click", function(e){
+home.addEventListener("click", function(e){
     mainPage.showPageTab();
 })
 
